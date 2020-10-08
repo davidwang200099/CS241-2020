@@ -61,8 +61,8 @@ int main(int argc, char** argv) {
     while (stream >> number)
         numbers.push_back(number);
     Solution s;
-	float res=s.hMedian(numbers);
-	cout<<fixed;
+    float res=s.hMedian(numbers);
+    cout<<fixed;
     cout <<setprecision(1) << res << endl;
     return 0;
 }
