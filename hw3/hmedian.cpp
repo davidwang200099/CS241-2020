@@ -59,10 +59,10 @@ int main(int argc, char** argv) {
     std::getline(std::cin, line);
     std::istringstream stream(line);
     while (stream >> number)
-        numbers.push_back(number);
+    numbers.push_back(number);
     Solution s;
-	float res=s.hMedian(numbers);
-	cout<<fixed;
+    float res=s.hMedian(numbers);
+    cout<<fixed;
     cout <<setprecision(1) << res << endl;
     return 0;
 }
