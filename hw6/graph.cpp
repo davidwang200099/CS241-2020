@@ -5,11 +5,11 @@
 #include <cmath>
 using namespace std;
 
-typedef struct{
+typedef struct edge{
     int from;
     int to;
     unsigned char weight;
-    Edge(int from, int to, unsigned char weight):from(from), to(to), weight(weight){}
+    edge(int from, int to, unsigned char weight):from(from), to(to), weight(weight){}
 }Edge;
 
 bool operator<(const Edge &a, const Edge &b){
@@ -24,13 +24,14 @@ int MST(vector<vector<unsigned char> > &v){
     vector<bool> visited(_size,false);
     priority_queue<Edge> pq;
     for(int i=1; i<_size;i++){
-        if(v[0][i]) pq.push(Edge(0,i,v[0][i]));
+        if(v[0][i]!=0) pq.push(Edge(0,i,v[0][i]));
     }
     visited[0]=true;
     while(num_visited!=_size){
         Edge edge=pq.top();
         pq.pop();
         int rank=edge.to;
+        if(visited[rank]) continue;
         sum+=edge.weight;
         visited[rank]=true;
         num_visited++;
